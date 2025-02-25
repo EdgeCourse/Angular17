@@ -1,0 +1,11 @@
+<h2>ngClass Demo in Angular 17</h2>
+<button (click)="toggleActive()">Toggle Active</button>
+<button (click)="toggleHighlighted()">Toggle Highlight</button>
+
+<!-- 
+  [ngClass] binds an object where the keys are CSS classes and the values are boolean expressions.
+  When an expression is true, its corresponding class is added to the element.
+-->
+<div [ngClass]="{ 'active': isActive, 'highlight': isHighlighted }">
+  This is a demo element.
+</div>

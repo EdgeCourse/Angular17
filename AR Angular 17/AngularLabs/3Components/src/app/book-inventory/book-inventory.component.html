@@ -1,0 +1,55 @@
+<!-- src/app/book-inventory/book-inventory.component.html -->
+<!--<h1>Current Inventory</h1>
+<p *ngIf="inventory.length === 0">There are no books in inventory.</p>
+
+<div *ngFor="let book of inventory; trackBy: trackByISBN" [ngClass]="{'featured-item': book.featured}">
+  <h3>{{book.title}} by {{book.author}} ({{book.year}})</h3>
+  <p *ngIf="book.featured">Featured book of the month!</p>
+  <p>ISBN: {{book.ISBN}}</p>
+  <p>Price: ${{book.price}}</p>
+  <p>
+    <button (click)="deleteBook(book)">Delete</button>
+  </p>
+</div>
+-->
+
+<div class="container my-4">
+    <h1 class="mb-4 text-center">Current Inventory</h1>
+    <p *ngIf="inventory.length === 0" class="alert alert-info text-center">There are no books in inventory.</p>
+  
+    <div class="row">
+      <!-- Each book occupies a responsive column: full width on extra small screens, half on small, one-third on medium, and one-fourth on large screens -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let book of inventory; trackBy: trackByISBN">
+        <!-- Use h-100 to enforce equal height and add a subtle shadow -->
+        <div class="card h-100 shadow-sm" appHoverHighlight="#e1e1e1">
+            <div class="ratio ratio-4x3">
+                <img *ngIf="book.coverImages.length > 0" 
+                     [src]="book.coverImages[0]" 
+                     class="card-img-top" 
+                     alt="{{ book.title }} cover" 
+                     style="object-fit: cover;">
+              </div> 
+            <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text flex-grow-1">
+              <strong>Author:</strong> {{ book.author }}<br>
+              <strong>Year:</strong> {{ book.year }}<br>
+              <strong>ISBN:</strong> {{ book.ISBN }}<br>
+              <strong>Price:</strong> ${{ book.price }}
+            </p>
+            <!-- Featured badge -->
+            <p *ngIf="book.featured" class="badge bg-primary mb-2">Featured Book</p>
+            <!-- ngSwitch for price-category message -->
+            <div [ngSwitch]="book.price > 30 ? 'expensive' : 'affordable'" class="mb-2">
+              <p *ngSwitchCase="'expensive'" class="text-danger mb-0">Premium selection!</p>
+              <p *ngSwitchCase="'affordable'" class="text-success mb-0">Budget-friendly!</p>
+              <p *ngSwitchDefault class="text-muted mb-0">Great value!</p>
+            </div>
+            <!-- Delete button stays at the bottom using mt-auto -->
+            <button (click)="deleteBook(book)" class="btn btn-danger mt-auto">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

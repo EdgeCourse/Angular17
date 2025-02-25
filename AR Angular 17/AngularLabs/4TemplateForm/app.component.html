@@ -1,0 +1,40 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+    <!-- Name Field -->
+    <div>
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        [(ngModel)]="user.name"
+        #name="ngModel"
+      />
+      <div *ngIf="name.invalid && name.touched" class="error">
+        Name is required.
+      </div>
+    </div>
+  
+    <!-- Email Field -->
+    <div>
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        email
+        [(ngModel)]="user.email"
+        #email="ngModel"
+      />
+      <div *ngIf="email.invalid && email.touched" class="error">
+        A valid email is required.
+      </div>
+    </div>
+  
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="userForm.invalid">
+      Submit
+    </button>
+  </form>
+  

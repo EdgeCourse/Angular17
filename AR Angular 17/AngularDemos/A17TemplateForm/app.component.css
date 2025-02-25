@@ -1,0 +1,10 @@
+/* Style for error messages */
+.error {
+  color: red;
+  font-size: 0.8em;
+}
+
+/* Highlight invalid inputs */
+input.ng-dirty.ng-invalid {
+  border-color: red;
+}
