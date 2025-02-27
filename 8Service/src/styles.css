@@ -1,0 +1,23 @@
+nav {
+    background-color: #333; /* Dark background for the navigation */
+    overflow: hidden; /* Prevent overflow issues */
+  }
+  
+  nav a {
+    float: left; /* Arrange links horizontally */
+    display: block; /* Make links block-level elements */
+    color: white; /* White text color */
+    text-align: center; /* Center text within the link */
+    padding: 14px 16px; /* Padding for spacing */
+    text-decoration: none; /* Remove underlines */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  nav a:hover {
+    background-color: #555; /* Darker background on hover */
+  }
+  
+  nav a.activelink {
+    background-color: #009999; /* Blue background for active link */
+    font-weight: bold; /* Bold text for active link */
+  }/* You can add global styles to this file, and also import other style files */
