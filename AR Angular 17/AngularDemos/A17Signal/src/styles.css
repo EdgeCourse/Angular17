@@ -1,0 +1,20 @@
+:root {
+    --bg-color: white;
+    --text-color: black;
+    --btn-bg: black;
+    --btn-text: white;
+  }
+  
+  .dark-mode {
+    --bg-color: black;
+    --text-color: white;
+    --btn-bg: white;
+    --btn-text: black;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  /* You can add global styles to this file, and also import other style files */
