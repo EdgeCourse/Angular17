@@ -1,0 +1,15 @@
+{
+  "books": [
+    {
+      "id": "132",
+      "ISBN": "132",
+      "title": "adgjsa",
+      "author": "adsnasdl",
+      "year": 2026,
+      "price": 0,
+      "featured": false,
+      "coverImages": [],
+      "description": ""
+    }
+  ]
+}

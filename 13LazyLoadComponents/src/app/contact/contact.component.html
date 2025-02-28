@@ -1,0 +1,58 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+  <!-- Name Field -->
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" type="text" formControlName="name" />
+    <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid" class="error">
+      <span *ngIf="userForm.get('name')?.errors?.['required']">Name is required.</span>
+      <span *ngIf="userForm.get('name')?.errors?.['forbiddenName']">Name cannot contain "admin" or "test".</span>
+    </div>
+  </div>
+
+  <!-- Email Field -->
+  <!--
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email" />
+    <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid" class="error">
+      <span *ngIf="userForm.get('email')?.errors?.['required']">Email is required.</span>
+      <span *ngIf="userForm.get('email')?.errors?.['email']">Enter a valid email.</span>
+    </div>
+  </div>
+-->
+  <!-- Email Group -->
+  <div formGroupName="emailGroup">
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" />
+      <div *ngIf="userForm.get('emailGroup.email')?.touched && userForm.get('emailGroup.email')?.invalid" class="error">
+        <span *ngIf="userForm.get('emailGroup.email')?.errors?.['required']">Email is required.</span>
+        <span *ngIf="userForm.get('emailGroup.email')?.errors?.['email']">Enter a valid email.</span>
+      </div>
+    </div>
+    <div>
+      <label for="confirmEmail">Confirm Email:</label>
+      <input id="confirmEmail" type="email" formControlName="confirmEmail" />
+      <div *ngIf="userForm.get('emailGroup.confirmEmail')?.touched && userForm.get('emailGroup.confirmEmail')?.invalid" class="error">
+        <span *ngIf="userForm.get('emailGroup.confirmEmail')?.errors?.['required']">Confirmation is required.</span>
+        <span *ngIf="userForm.get('emailGroup.confirmEmail')?.errors?.['email']">Enter a valid email.</span>
+      </div>
+    </div>
+    <!-- Error for mismatched emails -->
+    <div *ngIf="userForm.get('emailGroup')?.errors?.['emailMismatch']" class="error">
+      Emails do not match.
+    </div>
+  </div>
+  <!-- Hobbies FormArray -->
+  <div formArrayName="hobbies">
+    <label>Hobbies:</label>
+    <div *ngFor="let hobby of hobbies.controls; let i = index">
+      <input [formControlName]="i" placeholder="Enter hobby" />
+      <!-- Optionally add a remove button for each hobby -->
+    </div>
+    <button type="button" (click)="addHobby()">Add Hobby</button>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>
