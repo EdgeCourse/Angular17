@@ -1,0 +1,77 @@
+/* Center the form container and add a subtle shadow */
+form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  /* Style the labels for better readability */
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Style the input fields */
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Change border color on focus for accessibility */
+  input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Style the error messages */
+  .error {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Style the submit button */
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Disabled state for button */
+  button:disabled {
+    background-color: #a0c4ff;
+    cursor: not-allowed;
+  }
+  
+  /* Hover effect for button */
+  button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+
+  input.ng-invalid.ng-touched{
+
+    border: 2px solid red;
+
+  }
+
+  
